@@ -39,8 +39,8 @@ struct AckGenCLI {
                 let path = "\(packageCachePath)/\(pkgDir)/LICENSE"
 
                 let data: Data? = {
-                    if fman.fileExists(atPath: path) {
-                        return fman.contents(atPath: path)
+                    if let data = fman.contents(atPath: path) {
+                        return data
                     } else {
                         return fman.contents(atPath: "\(path).txt")
                     }
