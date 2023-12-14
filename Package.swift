@@ -6,14 +6,10 @@ import PackageDescription
 let package = Package(
     name: "AckGen",
     platforms: [
-        .macOS(.v10_15),
-        .iOS(.v13),
-        .watchOS(.v6),
-        .tvOS(.v14)
+        .iOS(.v14)
     ],
     products: [
         .executable(name: "ackgen", targets: ["AckGenCLI"]),
-        .library(name: "AckGenUI", targets: ["AckGenUI"]),
         .library(name: "AckGen", targets: ["AckGen"])
     ],
     dependencies: [
@@ -25,13 +21,6 @@ let package = Package(
             name: "AckGenCLI",
             dependencies: ["AckGen"]),
         .target(
-            name: "AckGenUI",
-            dependencies: ["AckGen"]),
-        .target(
             name: "AckGen",
-            dependencies: []),
-        .testTarget(
-            name: "AckGenTests",
-            dependencies: ["AckGen"]),
-    ]
-)
+            dependencies: [])
+    ])
