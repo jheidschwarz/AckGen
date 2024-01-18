@@ -41,8 +41,12 @@ struct AckGenCLI {
                 let data: Data? = {
                     if let data = fman.contents(atPath: path) {
                         return data
+                    } else if let data = fman.contents(atPath: "\(path).txt") {
+                        return data
+                    } else if let data = fman.contents(atPath: "\(path).md") {
+                        return data
                     } else {
-                        return fman.contents(atPath: "\(path).txt")
+                        return nil
                     }
                 }()
 
